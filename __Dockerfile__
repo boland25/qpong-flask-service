@@ -12,8 +12,8 @@ WORKDIR /app
 
 RUN pip install -r requirements.txt
 
-COPY . /app/flask_server
+COPY . /app
 
 ENTRYPOINT [ "python" ]
 
-CMD [ "api.py" ]
+CMD [ "app.py" ]
