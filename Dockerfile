@@ -1,6 +1,5 @@
 FROM ubuntu:16.04
-
-MAINTANER Your Name "boland@us.ibm.com"
+MAINTAINER Gregory Boland  "boland@us.ibm.com"
 
 RUN apt-get update -y && \
     apt-get install -y python-pip python-dev
