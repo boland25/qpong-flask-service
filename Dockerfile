@@ -1,18 +1,16 @@
-FROM ubuntu:16.04
+FROM python:3.6
 MAINTAINER Gregory Boland  "boland@us.ibm.com"
 
-RUN apt-get update -y && \
-    apt-get install -y python-pip python-dev
+# Set the working directory to /app
+WORKDIR /app
 
 # We copy just the requirements.txt first to leverage Docker cache
-COPY ./requirements.txt /app/requirements.txt
-
-WORKDIR /app
+COPY . /app
 
 RUN pip install -r requirements.txt
 
-COPY . /app/flask_server
-
 ENTRYPOINT [ "python" ]
 
-CMD [ "api.py" ]
+CMD [ "server.py" ]
+
+EXPOSE 8008
