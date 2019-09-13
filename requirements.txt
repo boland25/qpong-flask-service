@@ -2,3 +2,4 @@ flask
 json_tricks
 qiskit
 numpy
+flask_cors
