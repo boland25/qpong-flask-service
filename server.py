@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import sys
+import os
 
 # add project path to PYTHONPATH in order to run server.py as a script
 project_path = str(Path().resolve().parent)
@@ -14,6 +15,7 @@ from api import statevector, measurement
 
 app = Flask(__name__)
 
+port = int(os.getenv('PORT', 8080))
 
 @app.route('/')
 def welcome():
@@ -43,4 +45,4 @@ def do_measurement():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',  port=port)

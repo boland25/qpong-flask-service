@@ -1,0 +1,5 @@
+---
+applications:
+ - name: QPongService
+   random-route: true
+   memory: 640M
