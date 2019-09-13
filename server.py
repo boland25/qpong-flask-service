@@ -2,6 +2,7 @@
 from pathlib import Path
 import sys
 import os
+import logging
 
 # add project path to PYTHONPATH in order to run server.py as a script
 project_path = str(Path().resolve().parent)
@@ -10,10 +11,14 @@ sys.path.append(project_path)
 from flask import request
 from flask import jsonify
 from flask import Flask
+from flask_cors import CORS
 
 from api import statevector, measurement
 
 app = Flask(__name__)
+CORS(app)
+
+logging.getLogger('flask_cors').level = logging.DEBUG # for debugging
 
 port = int(os.getenv('PORT', 8080))
 
